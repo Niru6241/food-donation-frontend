@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { LogOutIcon, HomeIcon, UserIcon } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -53,9 +53,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, activeTab }
           </div>
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map(item => (
-                <a
+                <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className={`${
                         activeTab === item.id
                             ? 'bg-emerald-700 text-white'
@@ -66,7 +66,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, activeTab }
                     <item.icon className="mr-3 h-5 w-5" />
                     {item.name}
                   </div>
-                </a>
+                </Link>
             ))}
             <button
                 onClick={logout}
@@ -97,9 +97,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, activeTab }
                 </div>
                 <nav className="mt-2 px-2 space-y-1">
                   {navItems.map(item => (
-                      <a
+                      <Link
                           key={item.name}
-                          href={item.href}
+                          to={item.href}
                           className={`${
                               activeTab === item.id
                                   ? 'bg-emerald-50 text-emerald-600'
@@ -114,7 +114,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, activeTab }
                             }`}
                         />
                         {item.name}
-                      </a>
+                      </Link>
                   ))}
                 </nav>
               </div>
