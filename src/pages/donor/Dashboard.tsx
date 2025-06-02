@@ -395,25 +395,27 @@ const DonorDashboard = () => {
 
           {/* Stats - Always visible */}
           <div className="mt-8">
-            <dl className="grid grid-cols-1 gap-5 sm:grid-cols-4">
+            <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               {tabs.map(tab => (
-                  <div key={tab.id} className="px-4 py-5 bg-white shadow rounded-lg overflow-hidden sm:p-6">
-                    <dt className="text-sm font-medium text-gray-500 truncate">
-                      {tab.name}
-                    </dt>
-                    <dd
-                        className={`mt-1 text-3xl font-semibold ${
-                            tab.id === 'AVAILABLE' ? 'text-green-600' :
-                                tab.id === 'CLAIMED' ? 'text-blue-600' :
-                                    tab.id === 'COMPLETED' ? 'text-purple-600' : 'text-gray-900'
-                        }`}
-                    >
-                      {isLoading ? (
-                          <span className="inline-block h-8 w-8 animate-pulse rounded bg-gray-200"></span>
-                      ) : (
-                          tab.id === 'all' ? donationStats.total : donationStats[tab.id as keyof typeof donationStats] || 0
-                      )}
-                    </dd>
+                  <div key={tab.id} className="bg-white shadow rounded-lg overflow-hidden">
+                    <div className="px-4 py-5 sm:p-6">
+                      <dt className="text-sm font-medium text-gray-500 truncate">
+                        {tab.name}
+                      </dt>
+                      <dd
+                          className={`mt-1 text-3xl font-semibold ${
+                              tab.id === 'AVAILABLE' ? 'text-green-600' :
+                                  tab.id === 'CLAIMED' ? 'text-blue-600' :
+                                      tab.id === 'COMPLETED' ? 'text-purple-600' : 'text-gray-900'
+                          }`}
+                      >
+                        {isLoading ? (
+                            <span className="inline-block h-8 w-8 animate-pulse rounded bg-gray-200"></span>
+                        ) : (
+                            tab.id === 'all' ? donationStats.total : donationStats[tab.id as keyof typeof donationStats] || 0
+                        )}
+                      </dd>
+                    </div>
                   </div>
               ))}
             </dl>
@@ -435,16 +437,17 @@ const DonorDashboard = () => {
                 {/* Filters and Tabs */}
                 <div className="mt-8 bg-white shadow rounded-lg p-6">
                   <div className="border-b border-gray-200">
-                    <nav className="-mb-px flex space-x-8">
+                    <nav className="-mb-px flex space-x-2 sm:space-x-8 overflow-x-auto pb-2">
                       {tabs.map(tab => (
                           <button
                               key={tab.id}
                               onClick={() => handleTabChange(tab.id)}
-                              className={`${
+                              className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
+                              ${
                                   activeTab === tab.id
                                       ? 'border-emerald-500 text-emerald-600'
                                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                              } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm`}
+                              }`}
                           >
                             {tab.name}
                           </button>

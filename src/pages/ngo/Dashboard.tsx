@@ -438,7 +438,9 @@ const NgoDashboard = () => {
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-3 mb-8">
             <div className="bg-white overflow-hidden shadow rounded-lg">
               <div className="px-4 py-5 sm:p-6">
-                <dt className="text-sm font-medium text-gray-500 truncate">Available Donations</dt>
+                <div className="flex items-center">
+                  <dt className="text-sm font-medium text-gray-500 truncate">Available Donations</dt>
+                </div>
                 <dd className="mt-1 text-3xl font-semibold text-emerald-600">
                   {donationCounts.available}
                 </dd>
@@ -446,7 +448,9 @@ const NgoDashboard = () => {
             </div>
             <div className="bg-white overflow-hidden shadow rounded-lg">
               <div className="px-4 py-5 sm:p-6">
-                <dt className="text-sm font-medium text-gray-500 truncate">Claimed by You</dt>
+                <div className="flex items-center">
+                  <dt className="text-sm font-medium text-gray-500 truncate">Claimed by You</dt>
+                </div>
                 <dd className="mt-1 text-3xl font-semibold text-blue-600">
                   {donationCounts.claimed}
                 </dd>
@@ -454,7 +458,9 @@ const NgoDashboard = () => {
             </div>
             <div className="bg-white overflow-hidden shadow rounded-lg">
               <div className="px-4 py-5 sm:p-6">
-                <dt className="text-sm font-medium text-gray-500 truncate">Completed</dt>
+                <div className="flex items-center">
+                  <dt className="text-sm font-medium text-gray-500 truncate">Completed</dt>
+                </div>
                 <dd className="mt-1 text-3xl font-semibold text-purple-600">
                   {donationCounts.completed}
                 </dd>
@@ -481,7 +487,7 @@ const NgoDashboard = () => {
             </div>
             <div className="hidden sm:block">
               <div className="border-b border-gray-200">
-                <nav className="-mb-px flex space-x-8">
+                <nav className="-mb-px flex space-x-2 sm:space-x-8 overflow-x-auto pb-2">
                   <button
                       onClick={() => setActiveTab('available')}
                       className={`whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium ${
@@ -491,7 +497,7 @@ const NgoDashboard = () => {
                       }`}
                   >
                     Available
-                    <span className="ml-2 rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+                    <span className="ml-1.5 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
                     {donationCounts.available}
                   </span>
                   </button>
@@ -503,8 +509,8 @@ const NgoDashboard = () => {
                               : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
                       }`}
                   >
-                    Claimed by You
-                    <span className="ml-2 rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+                    Claimed
+                    <span className="ml-1.5 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
                     {donationCounts.claimed}
                   </span>
                   </button>
@@ -517,7 +523,7 @@ const NgoDashboard = () => {
                       }`}
                   >
                     Completed
-                    <span className="ml-2 rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
+                    <span className="ml-1.5 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">
                     {donationCounts.completed}
                   </span>
                   </button>
